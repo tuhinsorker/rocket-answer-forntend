@@ -1,0 +1,360 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #084277;
+  --primary-dark: #03396a;
+  --secondary: #f06a3d;
+  --secondary-light: #f2673b;
+  --secondary-hover: #ff561e;
+  --violet: #3c3b5f;
+  --blue: #007ff4;
+
+  --light-yellow: #fffcf3;
+
+  --gray: #555555;
+  --gray-1: #656565;
+  --gray-2: #676767;
+
+  --slate: #e8e8e8;
+  --slate-1: #f8f8f8;
+  --slate-2: #f6f6f7;
+  --slate-3: #f3f5f8;
+  --slate-4: #fafafa;
+
+  --chat-bg: #0842770f;
+
+  --dark: #2c2c2c;
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  ::-webkit-file-upload-button {
+    display: none;
+  }
+}
+
+@layer components {
+  .nav-item {
+    @apply text-[var(--primary)] hover:text-[var(--secondary)] transition-all duration-500 text-[16px] leading-[20px] font-medium w-full md:w-auto whitespace-nowrap;
+  }
+
+  .active {
+    @apply !bg-[var(--primary)] !text-white transition-all duration-500;
+  }
+
+  .btn-primary {
+    @apply text-white bg-[var(--primary)] hover:bg-[var(--primary-dark)] hover:shadow-md transition-all duration-500 px-4 lg:px-6 py-2 lg:py-3;
+  }
+
+  .btn-secondary-light {
+    @apply text-white bg-[var(--secondary-light)] hover:bg-[var(--secondary-hover)] hover:shadow-md transition-all duration-500 px-4 lg:px-6 py-2 lg:py-3;
+  }
+
+  .btn-secondary {
+    @apply text-white bg-[var(--secondary)] hover:bg-[var(--secondary-hover)] hover:shadow-md transition-all duration-500 px-4 lg:px-6 py-2 lg:py-3;
+  }
+
+  .icon-primary {
+    @apply p-2 md:p-3 rounded-full bg-[var(--slate)] hover:bg-[var(--primary)] text-[var(--primary)] hover:text-white text-sm md:text-xl transition-all duration-500;
+  }
+
+  .icon-outline {
+    @apply flex items-center justify-center w-9 h-9 rounded-full text-[var(--blue)] hover:text-white border border-[var(--primary)] hover:bg-[var(--primary)] hover:shadow-xl transition duration-500;
+  }
+
+  .table-cell {
+    @apply whitespace-nowrap px-5 py-4;
+  }
+
+  .form-item {
+    @apply block w-full text-base leading-5 text-[var(--dark)] bg-[var(--slate-3)] border outline-0 px-4 lg:px-5 py-3 focus:border-[var(--secondary)] transition-all duration-500;
+  }
+
+  .text-hover {
+    @apply hover:text-[var(--secondary)] hover:underline transition-all duration-500;
+  }
+
+  .box-hover {
+    @apply hover:shadow-none transition-all duration-500;
+  }
+}
+
+body,
+html {
+  scroll-behavior: smooth !important;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.home-banner {
+  /* background-image: url(../public/images/home_banner.png); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.spin-icon {
+  display: inline;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+.pointer-even-none {
+  pointer-events: none !important;
+  opacity: 0.6;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/**================================================== *
+ * ==========  country-select  ========== *
+ * ================================================== */
+
+.country-select button {
+  background-color: var(--slate-3);
+  padding-inline: 20px;
+  padding-block: 10px;
+}
+
+.country-select ul .country-list {
+  max-height: 200px;
+}
+
+/* =======  End of country-select  ======= */
+
+/**================================================== *
+ * ==========  dropdown ========== *
+ * ================================================== */
+.profile-dropdown {
+  /* min-width: 150px; */
+  min-width: 200px;
+  background: var(--primary);
+  z-index: 999;
+}
+
+.dropdown-btn {
+  border: 5px solid var(--secondary);
+}
+
+.profile-dropdown a {
+  padding-left: 16px;
+  transition: all 0.1s;
+}
+
+.profile-dropdown a:hover {
+  color: var(--secondary);
+  font-weight: 700;
+  transition: all 0.1s;
+}
+
+.profile-dropdown button:hover {
+  background-color: var(--secondary);
+  transition: all ease-out 0.3s;
+}
+
+.dropdown-items {
+  min-width: 200px;
+  background: var(--primary);
+  z-index: 1;
+}
+
+.dropdown-items a {
+  padding-left: 16px;
+  padding-block: 8px;
+}
+
+.dropdown-items a:hover {
+  background: var(--secondary);
+}
+
+.more-dropdown-wrapper {
+  z-index: 1 !important;
+  right: 0;
+  width: 700px;
+}
+
+.more-dropdown-wrapper h5 {
+  margin-left: 10px;
+  opacity: 0.8;
+}
+
+.more-dropdown-wrapper ul {
+  columns: 3;
+  margin-top: 10px;
+}
+.more-dropdown-wrapper ul li a:hover {
+  background: var(--primary);
+  transition: all 0.5s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+  .more-dropdown-wrapper {
+    right: -220px !important;
+  }
+}
+/* =======  End of dropdown  ======= */
+
+/**================================================== *
+ * ==========  review-modal  ========== *
+ * ================================================== */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(8, 66, 119, 0.8);
+  z-index: 1000000;
+  cursor: pointer;
+}
+
+.review-modal {
+  background: var(--primary);
+  width: 80%;
+}
+
+/* =======  End of review-modal  ======= */
+
+/**================================================== *
+ * ==========  Slick slider  ========== *
+ * ================================================== */
+.slick-dots {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.slick-dots li button {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d9;
+
+  font-size: 5px;
+  text-indent: -9999px;
+}
+
+.slick-dots li.slick-active button {
+  width: 28px;
+  border-radius: 9px;
+  background-color: var(--secondary);
+}
+
+/* export slider */
+.export-slider .slick-dots li.slick-active button {
+  width: 10px;
+  border: 1px solid var(--secondary);
+  background-color: white;
+}
+
+/* SLick Slider Global */
+.slick-slide img {
+  display: inline-block;
+}
+
+.slick-list {
+  margin: 0px -12px !important;
+}
+
+.slick-slide > div {
+  margin: 0 12px;
+
+  /*remove */
+  text-align: center;
+}
+
+.category-slider .slick-list {
+  margin: 0px -8px !important;
+}
+
+.category-slider .slick-slide > div {
+  margin: 0px 0px;
+}
+
+/* =======  End of Slick slider  ======= */
+
+/**================================================== *
+ * ==========  Pagination  ========== *
+ * ================================================== */
+
+.pagination li button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  transition: all 0.5s ease-out;
+}
+
+.pagination li button:hover {
+  color: var(--slate);
+  background: var(--primary);
+  transition: all 0.5s ease-out;
+}
+
+/* =======  End of Pagination  ======= */
+
+/* .more:hover + .categories {
+  display: block;
+} */
+
+/**================================================== *
+ * ==========  Scrollbar  ========== *
+ * ================================================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gray-2);
+}
+
+.notification::-webkit-scrollbar {
+  width: 5px;
+}
+
+.notification::-webkit-scrollbar-track {
+  border-top-right-radius: 5px;
+}
+
+.notification::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-light);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.chat::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chat::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--slate);
+}
+
+/* =======  End of Scrollbar  ======= */
